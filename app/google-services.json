@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "900224852567",
+    "project_id": "mealboi",
+    "storage_bucket": "mealboi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900224852567:android:5a2aa085e0a80c5b88b912",
+        "android_client_info": {
+          "package_name": "com.example.recipebazzar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "900224852567-jtplmn42bu6vjdfbkmk7jmgn0dm2opvt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmvvAmZtVv_CD1AeijaQsMUiMpXoLS7bM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "900224852567-jtplmn42bu6vjdfbkmk7jmgn0dm2opvt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
