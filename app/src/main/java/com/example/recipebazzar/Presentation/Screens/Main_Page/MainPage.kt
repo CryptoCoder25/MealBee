@@ -14,9 +14,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.recipebazzar.Presentation.PublicEvents.PublicUiEvents
-import com.example.recipebazzar.Presentation.Screens.Main_Page.Components.BottomAppBar1
+
 
 import com.example.recipebazzar.Presentation.Screens.Main_Page.Components.AppBottomItem
+import com.example.recipebazzar.Presentation.Screens.Main_Page.Components.BottomAppBarMainPage
 import com.example.recipebazzar.Presentation.Screens.Main_Page.Components.OnlineStores
 import com.example.recipebazzar.Presentation.ui.ItemsUi.MealsCategory
 
@@ -62,12 +63,11 @@ fun MainPage(
 
 
     Scaffold(
-        bottomBar = {
-            BottomAppBar1( currentScreenId = currentScreen.value.id) {
+       bottomBar = {
+            BottomAppBarMainPage( currentScreenId = currentScreen.value.id) {
                 currentScreen.value= it
             }
-                    },
-        drawerContent = { Text(text = "Drawer") }
+                    }
     ) {
         Column(
             modifier = Modifier

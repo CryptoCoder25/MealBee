@@ -14,7 +14,7 @@ fun NoteScreenPage(
 ){
 
     Text(
-        text = "MEAL CATEGORIES",
+        text = "CHECKLIST",
         style = MaterialTheme.typography.h5,
         fontWeight = FontWeight.Medium,
         fontSize = 20.sp

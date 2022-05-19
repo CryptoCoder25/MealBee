@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun BottomAppBar1(
+fun BottomAppBarMainPage(
     currentScreenId: String,
     onItemSelected:(AppBottomItem)->Unit
 ) {
