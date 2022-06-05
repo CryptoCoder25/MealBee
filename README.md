@@ -15,6 +15,6 @@ Tech Stack and Design Pattern Used:
  
  Screenshots:
  
- 
-![1](https://user-images.githubusercontent.com/105339727/172060467-1ff4468b-12c2-4095-b8ee-25398df109f2.jpg  | width=100)![Uploading Screenshot_2022-06-05-22-26-00-114_com.example.recipebazzar.jpg…]()
 
+
+![1](https://user-images.githubusercontent.com/105339727/172060711-1ca8e15d-b2bb-4c18-a546-f5419247ca75.jpg)
