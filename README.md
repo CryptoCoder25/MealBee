@@ -5,7 +5,7 @@
 1. International Recipe listing.
 2. List of ingredients, beverage and kitcheware provide.
 3. Kitchen notes - development ongoing
-4. Scheduled Meal - development ongoing
+4. Schedule Meal - development ongoing
 
 
 ### Note: Development still ongoing.
