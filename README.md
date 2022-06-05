@@ -13,8 +13,7 @@
 
 ## Tech Stack and Design Pattern Used:
  
- Android Kotlin with coroutines , Jetpack Compose, Clean Architecture, Model-View-ViewModel (MVVM), SQLITE ROOM DataBase, Dependency Injection (Dagger Hilt), 
- Glide Image Library, Firebase Cloud Firestore, MealDB Rest Api, Retrofit , Retrofit coroutines, Moshi-kotlin.
+ Android Kotlin with coroutines & kotlin flow, Jetpack Compose, Clean Architecture, Model-View-ViewModel (MVVM), SQLITE ROOM DataBase, Dependency Injection (Dagger Hilt), Glide Image Library, Firebase Cloud Firestore, MealDB Rest Api, Retrofit , Retrofit coroutines, Moshi-kotlin.
  
 
 ## Screenshots:
