@@ -1,45 +1,54 @@
 package com.example.recipebazzar.Presentation.Screens.Main_Page
 
+import android.app.Activity
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.recipebazzar.Presentation.PublicEvents.PublicUiEvents
+import com.example.recipebazzar.MainActivity
+import com.example.recipebazzar.Presentation.PublicPresentationEvents.PublicUiEvents
 
 
 import com.example.recipebazzar.Presentation.Screens.Main_Page.Components.AppBottomItem
 import com.example.recipebazzar.Presentation.Screens.Main_Page.Components.BottomAppBarMainPage
 import com.example.recipebazzar.Presentation.Screens.Main_Page.Components.OnlineStores
 import com.example.recipebazzar.Presentation.ui.ItemsUi.MealsCategory
+import com.example.recipebazzar.Presentation.ui.theme.White11
+import com.example.recipebazzar.R
+
 
 import kotlinx.coroutines.flow.collect
 
-
-
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun MainPage(
    onNavigate: (PublicUiEvents.Navigate) -> Unit,
-   currentScreen: MutableState<AppBottomItem>
+   currentScreen: MutableState<AppBottomItem>,
+   activity: Activity?
     ){
+
+
 
    val  viewModel: MainPageViewModel =  hiltViewModel()
     val scrollState = rememberScrollState()
     val scaffoldState = rememberScaffoldState()
 
-
-
     LaunchedEffect(key1 = true) {
-        // scrollState.scrollTo()
+
         scrollState.animateScrollTo(scrollState.value - 1000)
         viewModel.uiEvent.collect { event ->
 
@@ -53,7 +62,17 @@ fun MainPage(
 
                 }
 
+                is PublicUiEvents.CloseApp -> {
+
+                       activity?.let {
+                           activity.finish()
+                       }
+
+                }
+
                 is PublicUiEvents.Navigate -> onNavigate(event);
+
+
 
                 else -> Unit
             }
@@ -63,6 +82,10 @@ fun MainPage(
 
 
     Scaffold(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(top = 15.dp),
+        scaffoldState = scaffoldState,
        bottomBar = {
             BottomAppBarMainPage( currentScreenId = currentScreen.value.id) {
                 currentScreen.value= it
@@ -72,25 +95,39 @@ fun MainPage(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = 50.dp, start = 20.dp, end = 20.dp)
+                .padding(start = 20.dp, end = 20.dp)
         ){
 
-            Text(
-                text = "Welcome to MealBoi",
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 30.sp,
-                style = MaterialTheme.typography.h6,
-            )
+            Row(modifier = Modifier
+                .fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = "Happy MealBee",
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 30.sp
+                )
+                Spacer(
+                    modifier = Modifier.width(5.dp)
+                )
+                Image(
+                    painter = painterResource(R.drawable.bee),
+                    contentDescription = "",
+                    modifier = Modifier.size(45.dp)
+                )
+            }
+
 
             Spacer(
-                modifier = Modifier.height(10.dp)
+                modifier = Modifier.height(15.dp)
             )
 
             Text(
-                text = "ONLINE STORES",
+                text = "Online Stores",
                 style = MaterialTheme.typography.h5,
-                fontWeight = FontWeight.Medium,
-                fontSize = 20.sp
+                fontWeight = FontWeight.Normal,
+                fontSize = 20.sp,
+                color = Color.DarkGray
 
             )
 
@@ -100,16 +137,16 @@ fun MainPage(
             OnlineStores()
 
             Spacer(
-                modifier = Modifier.height(10.dp)
+                modifier = Modifier.height(15.dp)
             )
 
 
             Text(
-                text = "MEAL CATEGORIES",
+                text = "Select Category",
                 style = MaterialTheme.typography.h5,
-                fontWeight = FontWeight.Medium,
-                fontSize = 20.sp
-
+                fontWeight = FontWeight.Normal,
+                fontSize = 20.sp,
+                color = Color.DarkGray
             )
 
             Spacer(
@@ -130,6 +167,17 @@ fun MainPage(
 
 
 }
+
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewPgage(){
+
+  ///  MainPage(onNavigate =  {}, currentScreen = remember { mutableStateOf<AppBottomItem>(AppBottomItem.Home) } )
+}
+
+
+
 
 
 

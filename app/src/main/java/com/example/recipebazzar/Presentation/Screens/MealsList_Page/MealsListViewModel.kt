@@ -5,12 +5,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.recipebazzar.Domain.NetworkCalls.GetMealList_NC
+import com.example.recipebazzar.Domain.UseCases.GetRecipeUseCases.GetMealList_NC
 
-import com.example.recipebazzar.NetworkUtils.NetworkEvents
-import com.example.recipebazzar.Presentation.PublicEvents.PublicUiEvents
-import com.example.recipebazzar.Presentation.Screens.Main_Page.MainPageEvent
-import com.example.recipebazzar.Routes
+import com.example.recipebazzar.Domain.NetworkUtils.NetworkEvents
+import com.example.recipebazzar.Presentation.PublicPresentationEvents.PublicUiEvents
+import com.example.recipebazzar.Utils.Routes
 import com.example.recipebazzar.Utils.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
@@ -31,8 +30,6 @@ class MealsListViewModel @Inject constructor(
 
     private val _state = mutableStateOf(MealsListStates())
     val state: State<MealsListStates> = _state
-
-
 
     private val _uiEvent =  Channel<PublicUiEvents>()
     val uiEvent = _uiEvent.receiveAsFlow()

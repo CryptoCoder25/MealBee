@@ -7,7 +7,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -33,11 +32,11 @@ fun MealsCategory(
 ){
         val configuration = LocalConfiguration.current
         var cardModifier: Modifier
-
-        Log.d("SIZE",configuration.screenWidthDp.dp.toString())
-
-
         val cardElevation: Dp = 3.dp;
+        val fontWeight = FontWeight.Normal;
+        val fontColor = Color.DarkGray
+
+
          if(configuration.screenWidthDp.dp <= 480.dp)
          {
              cardModifier = Modifier
@@ -48,7 +47,7 @@ fun MealsCategory(
              cardModifier = Modifier
                  .padding(vertical = 8.dp, horizontal = 5.dp)
          }
-
+       Log.d("SIZE",configuration.screenWidthDp.dp.toString())
 
             Row() {
 
@@ -65,20 +64,21 @@ fun MealsCategory(
                             verticalArrangement = Arrangement.Top,
                             horizontalAlignment = Alignment.CenterHorizontally,
                             modifier = Modifier
-                                .background(color = TCOLOR22)
+                                .background(color = HotPink)
                                 .padding(25.dp, 8.dp)
 
                         ) {
 
 
                             Image(
-                                painter = painterResource(R.drawable.seafoods_item),
+                                painter = painterResource(R.drawable.beef_item),
                                 contentDescription = "",
                             )
 
                             Text(
                                 text = "Beef",
-                               fontWeight = FontWeight.SemiBold
+                               fontWeight = fontWeight,
+                                color = fontColor
                             )
 
 
@@ -98,7 +98,7 @@ fun MealsCategory(
                         shape = RoundedCornerShape(8),
                         elevation = cardElevation,
                         modifier = cardModifier.clickable {
-                            viewModel.MainPageEventVM(MainPageEvent.onClickCategory("Pork"))
+                            viewModel.MainPageEventVM(MainPageEvent.onClickCategory("Vegetarian"))
                         }
                     ) {
 
@@ -106,20 +106,20 @@ fun MealsCategory(
                             verticalArrangement = Arrangement.Top,
                             horizontalAlignment = Alignment.CenterHorizontally,
                             modifier = Modifier
-                                .background(color = TCOLOR22)
+                                .background(color = TiffanyBlue)
                                 .padding(25.dp, 8.dp)
 
                         ) {
 
-
                             Image(
-                                painter = painterResource(R.drawable.seafoods_item),
+                                painter = painterResource(R.drawable.vegetarian_item),
                                 contentDescription = "",
                             )
 
                             Text(
-                                text = "Pork",
-                                fontWeight = FontWeight.SemiBold
+                                text = "Vegetarian",
+                                fontWeight = fontWeight,
+                                color = fontColor
                             )
 
 
@@ -151,20 +151,21 @@ fun MealsCategory(
                     verticalArrangement = Arrangement.Top,
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
-                        .background(color = TCOLOR22)
+                        .background(color = ClayMint)
                         .padding(25.dp, 8.dp)
 
                 ) {
 
 
                     Image(
-                        painter = painterResource(R.drawable.seafoods_item),
+                        painter = painterResource(R.drawable.chicken_item),
                         contentDescription = "",
                     )
 
                     Text(
                         text = "Chicken",
-                        fontWeight = FontWeight.SemiBold
+                        fontWeight = fontWeight,
+                        color = fontColor
                     )
 
 
@@ -184,7 +185,7 @@ fun MealsCategory(
                 shape = RoundedCornerShape(8),
                 elevation = cardElevation,
                 modifier = cardModifier.clickable {
-                    viewModel.MainPageEventVM(MainPageEvent.onClickCategory("Seafood"))
+                    viewModel.MainPageEventVM(MainPageEvent.onClickCategory("Pork"))
                 }
             ) {
 
@@ -192,20 +193,21 @@ fun MealsCategory(
                     verticalArrangement = Arrangement.Top,
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
-                        .background(color = TCOLOR22)
+                        .background(color = ClayYellow)
                         .padding(25.dp, 8.dp)
 
                 ) {
 
 
                     Image(
-                        painter = painterResource(R.drawable.seafoods_item),
+                        painter = painterResource(R.drawable.pork_item),
                         contentDescription = "",
                     )
 
                     Text(
-                        text = "Seafood",
-                        fontWeight = FontWeight.SemiBold
+                        text = "Pork",
+                        fontWeight = fontWeight,
+                        color = fontColor
                     )
 
 
@@ -237,20 +239,21 @@ fun MealsCategory(
                     verticalArrangement = Arrangement.Top,
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
-                        .background(color = TCOLOR22)
+                        .background(color = ClayBlue)
                         .padding(25.dp, 8.dp)
 
                 ) {
 
 
                     Image(
-                        painter = painterResource(R.drawable.seafoods_item),
+                        painter = painterResource(R.drawable.lamb_item),
                         contentDescription = "",
                     )
 
                     Text(
                         text = "Lamb",
-                        fontWeight = FontWeight.SemiBold
+                        fontWeight = fontWeight,
+                        color = fontColor
                     )
 
 
@@ -278,20 +281,21 @@ fun MealsCategory(
                     verticalArrangement = Arrangement.Top,
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
-                        .background(color = TCOLOR22)
+                        .background(color = ClayViolet)
                         .padding(25.dp, 8.dp)
 
                 ) {
 
 
                     Image(
-                        painter = painterResource(R.drawable.seafoods_item),
+                        painter = painterResource(R.drawable.pasta_item),
                         contentDescription = "",
                     )
 
                     Text(
                         text = "Pasta",
-                        fontWeight = FontWeight.SemiBold
+                        fontWeight = fontWeight,
+                        color = fontColor
                     )
 
 
@@ -314,7 +318,7 @@ fun MealsCategory(
                 shape = RoundedCornerShape(8),
                 elevation = cardElevation,
                 modifier = cardModifier.clickable {
-                    viewModel.MainPageEventVM(MainPageEvent.onClickCategory("Vegetarian"))
+                    viewModel.MainPageEventVM(MainPageEvent.onClickCategory("Vegan"))
                 }
             ) {
 
@@ -322,20 +326,21 @@ fun MealsCategory(
                     verticalArrangement = Arrangement.Top,
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
-                        .background(color = TCOLOR22)
+                        .background(color = Mint)
                         .padding(25.dp, 8.dp)
 
                 ) {
 
 
                     Image(
-                        painter = painterResource(R.drawable.seafoods_item),
+                        painter = painterResource(R.drawable.vegan_item),
                         contentDescription = "",
                     )
 
                     Text(
-                        text = "Vegetarian",
-                        fontWeight = FontWeight.SemiBold
+                        text = "Vegan",
+                        fontWeight = fontWeight,
+                        color = fontColor
                     )
 
 
@@ -363,20 +368,21 @@ fun MealsCategory(
                     verticalArrangement = Arrangement.Top,
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
-                        .background(color = TCOLOR22)
+                        .background(color = ClaySpearMint)
                         .padding(25.dp, 8.dp)
 
                 ) {
 
 
                     Image(
-                        painter = painterResource(R.drawable.seafoods_item),
+                        painter = painterResource(R.drawable.desert_item),
                         contentDescription = "",
                     )
 
                     Text(
                         text = "Dessert",
-                        fontWeight = FontWeight.SemiBold
+                        fontWeight = fontWeight,
+                        color = fontColor
                     )
 
 
@@ -407,20 +413,21 @@ fun MealsCategory(
                     verticalArrangement = Arrangement.Top,
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
-                        .background(color = TCOLOR22)
+                        .background(color = HotPink)
                         .padding(25.dp, 8.dp)
 
                 ) {
 
 
                     Image(
-                        painter = painterResource(R.drawable.seafoods_item),
+                        painter = painterResource(R.drawable.goat_item),
                         contentDescription = "",
                     )
 
                     Text(
                         text = "Goat",
-                        fontWeight = FontWeight.SemiBold
+                        fontWeight = fontWeight,
+                        color =  fontColor
                     )
 
 
@@ -440,7 +447,7 @@ fun MealsCategory(
                 shape = RoundedCornerShape(8),
                 elevation = cardElevation,
                 modifier = cardModifier.clickable {
-                    viewModel.MainPageEventVM(MainPageEvent.onClickCategory("Vegan"))
+                    viewModel.MainPageEventVM(MainPageEvent.onClickCategory("Seafood"))
                 }
             ) {
 
@@ -448,7 +455,7 @@ fun MealsCategory(
                     verticalArrangement = Arrangement.Top,
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
-                        .background(color = TCOLOR22)
+                        .background(color = TiffanyBlue)
                         .padding(25.dp, 8.dp)
 
                 ) {
@@ -460,8 +467,9 @@ fun MealsCategory(
                     )
 
                     Text(
-                        text = "Vegan",
-                        fontWeight = FontWeight.SemiBold
+                        text = "Seafood",
+                        fontWeight = fontWeight,
+                        color = fontColor
                     )
 
 

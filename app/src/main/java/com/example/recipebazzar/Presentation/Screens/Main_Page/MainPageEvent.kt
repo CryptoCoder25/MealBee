@@ -4,9 +4,10 @@ sealed class MainPageEvent {
 
    data class onClickCategory(val category: String): MainPageEvent()
 
-    object onClickNoteItem: MainPageEvent()
+    data class onClickAppBarItem(val itemId: String): MainPageEvent()
 
-    object onClickScheduledMealItem: MainPageEvent()
+    data class onClickStore(val store_category: String): MainPageEvent()
+
 
 
 }

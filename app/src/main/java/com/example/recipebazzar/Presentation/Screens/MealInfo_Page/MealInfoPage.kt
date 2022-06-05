@@ -1,41 +1,35 @@
 package com.example.recipebazzar.Presentation.Screens.MealInfo_Page
 
+import android.annotation.SuppressLint
 import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material.OutlinedButton
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import coil.compose.rememberImagePainter
 import com.example.recipebazzar.Domain.Models.Meal_Info
-import com.example.recipebazzar.Presentation.PublicEvents.PublicUiEvents
+import com.example.recipebazzar.Presentation.PublicPresentationEvents.PublicUiEvents
 import com.example.recipebazzar.Presentation.Screens.MealInfo_Page.Components.MealInfoItemsFormatter
-import com.example.recipebazzar.Presentation.Screens.MealsList_Page.MealsListViewModel
 import com.example.recipebazzar.Presentation.Screens.ScreenUtils.ItemMealInfoShimmerEffect
-import com.example.recipebazzar.Presentation.Screens.ScreenUtils.LoadingAnimation1
-import com.example.recipebazzar.Presentation.ui.theme.*
+import com.example.recipebazzar.Presentation.Screens.ScreenUtils.LoadingEffect
+import com.example.recipebazzar.Presentation.Screens.ScreenUtils.OnBlankView
+import com.example.recipebazzar.Presentation.Screens.ScreenUtils.OnErrorView
 import com.example.recipebazzar.R
 import kotlinx.coroutines.flow.collect
 
+@SuppressLint("SuspiciousIndentation")
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun MealInfoPage(
@@ -43,10 +37,10 @@ fun MealInfoPage(
     viewModel: Meal_InfoViewModel =  hiltViewModel()
 ){
 
+
+    var mealdata : Meal_Info? = null;
     val scaffoldState = rememberScaffoldState()
     val state =   viewModel.state.value
-    var mealdata : Meal_Info? = null
-
 
          if (!state.mealinfo.isNullOrEmpty()) {
              mealdata = state.mealinfo.get(0);
@@ -76,10 +70,11 @@ fun MealInfoPage(
     if(state.isLoading){
         Box(modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center){
-            LoadingAnimation1()
+            LoadingEffect()
         }
     }else if(state.error.isNotBlank()){
 
+        OnErrorView(state.error)
 
     } else {
         if (mealdata != null) {
@@ -91,10 +86,6 @@ fun MealInfoPage(
                         .fillMaxSize(1F)
                         .padding(top = 15.dp)
                 ) {
-                    val list =
-                        MealInfoItemsFormatter.getIngredients(mealdata) + ((0..100).map { it.toString() })
-                    var x: Int = 0;
-
                     LazyVerticalGrid(
                         cells = GridCells.Fixed(2),
                         // content padding
@@ -105,19 +96,21 @@ fun MealInfoPage(
                         ),
                         content = {
 
-                            items(MealInfoItemsFormatter.getIngredients(mealdata).size) { index ->
+                            items(MealInfoItemsFormatter.getMeasurements(mealdata).size) { index ->
+                                var ingriedient = MealInfoItemsFormatter.getIngredients(mealdata)[index];
+                                var measurement = MealInfoItemsFormatter.getMeasurements(mealdata)[index];
 
-                                if (!MealInfoItemsFormatter.getIngredients(mealdata)[index].isNullOrEmpty() ||
-                                    !MealInfoItemsFormatter.getIngredients(mealdata)[index].toString()
-                                        .equals("")
+                                if (measurement.toString().isNullOrEmpty() ||
+                                    measurement.toString().trim().equals("")||
+                                    measurement.toString().trim().equals("null")
+
                                 ) {
-                                    var ingriedient =
-                                        MealInfoItemsFormatter.getIngredients(mealdata)[index];
-                                    var measurement =
-                                        MealInfoItemsFormatter.getMeasurements(mealdata)[index];
 
+                                    Log.d("ITEM-VALUE-ERROR", measurement.toString())
+
+                                }else{
+                                    Log.d("ITEM-VALUE-SUCCESS", measurement.toString())
                                     ItemMealInfoShimmerEffect(ingriedient, measurement)
-
                                 }
 
                             }
@@ -127,6 +120,9 @@ fun MealInfoPage(
 
                 }
             }
+        }else {
+
+            OnBlankView(message = "No Record Found!")
         }
     }
 

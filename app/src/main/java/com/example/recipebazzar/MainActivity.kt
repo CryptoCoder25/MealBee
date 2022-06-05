@@ -1,27 +1,34 @@
 package com.example.recipebazzar
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material.Surface
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.recipebazzar.Presentation.Screens.CheckListNote_Page.CheckListNotePage
 import com.example.recipebazzar.Presentation.Screens.Main_Page.MainPage
 import com.example.recipebazzar.Presentation.Screens.MealInfo_Page.MealInfoPage
 import com.example.recipebazzar.Presentation.Screens.MealsList_Page.MealsListPage
-import com.example.recipebazzar.Presentation.Screens.NoteScreen_Page.NoteScreenPage
 import com.example.recipebazzar.Presentation.Screens.ScheduledMeal_Page.ScheduleMealPage
 import com.example.recipebazzar.Presentation.Screens.Main_Page.Components.AppBottomItem
+import com.example.recipebazzar.Presentation.Screens.OnlineStores_Page.OnlineStorePage
 import com.example.recipebazzar.Presentation.ui.theme.RecipeBazzarTheme
-import com.example.recipebazzar.Presentation.ui.theme.White
 import com.example.recipebazzar.Utils.Constants
-import com.google.accompanist.insets.ProvideWindowInsets
+import com.example.recipebazzar.Utils.Routes
+
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -31,77 +38,98 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val currentScreen= mutableStateOf<AppBottomItem>(AppBottomItem.Home)
-
         setContent {
             RecipeBazzarTheme {
 
-                ProvideWindowInsets {
+                val activity = (LocalContext.current as? Activity)
+                val systemUiController = rememberSystemUiController()
+                val useDarkIcons = MaterialTheme.colors.isLight
 
-                    Surface(color = White) {
-                        val navController = rememberNavController()
-
-                        NavHost(
-                            navController = navController,
-                            startDestination = Routes.MainScreen
-                        )
-                        {
-                            composable(Routes.MainScreen) {
-                               MainPage(
-                                   onNavigate = {navController.navigate(it.route)},
-                                   currentScreen
-                                   )
-
-                            }
-                            composable(route = Routes.MealListScreen + "?category={category}",
-                                arguments = listOf(
-                                    navArgument(name = Constants.MealsCategory) {
-                                        type = NavType.StringType
-                                        defaultValue = ""
-                                    }
-                                )
-                            ) {
-                                MealsListPage(onNavigate = {
-                                    navController.navigate(it.route)
-                                }
-                                )
-                            }
-                            composable(route = Routes.MealInfoScreen + "?MEAL_ID={MEAL_ID}",
-                                arguments = listOf(
-                                    navArgument(name = Constants.MealsId) {
-                                        type = NavType.StringType
-                                        defaultValue = ""
-                                    }
-                                )
-                            ) {
-                                MealInfoPage(onNavigate = {
-                                    navController.navigate(it.route)
-                                }
-                                )
-                            }
-                            composable(Routes.NoteScreen) {
-                                NoteScreenPage(
-                                    onNavigate = {navController.navigate(it.route)}
-                                )
-
-                            }
-                            composable(Routes.ScheduledMealScreen) {
-                                ScheduleMealPage(
-                                    onNavigate = {navController.navigate(it.route)}
-                                )
-
-                            }
-                        }
-                    }
-
-
-                }
+                systemUiController.setStatusBarColor(
+                    color = Color.White,
+                    darkIcons = useDarkIcons
+                )
+               AppContent(currentScreen, activity)
 
             }
-
-
-
         }
     }
+}
+
+@Composable
+fun AppContent( currentScreen : MutableState<AppBottomItem>, activity: Activity?){
+
+    Scaffold() {
+
+        val navController = rememberNavController()
+        NavHost(
+            navController = navController,
+            startDestination = Routes.MainScreen
+        )
+        {
+            composable(Routes.MainScreen) {
+                MainPage(
+                    onNavigate = {navController.navigate(it.route)},
+                    currentScreen,
+                     activity
+                )
+
+            }
+            composable(route = Routes.MealListScreen + "?category={category}",
+                arguments = listOf(
+                    navArgument(name = Constants.MealsCategory) {
+                        type = NavType.StringType
+                        defaultValue = ""
+                    }
+                )
+            ) {
+                MealsListPage(onNavigate = {
+                    navController.navigate(it.route)
+                }
+                )
+            }
+            composable(route = Routes.MealInfoScreen + "?MEAL_ID={MEAL_ID}",
+                arguments = listOf(
+                    navArgument(name = Constants.MealsId) {
+                        type = NavType.StringType
+                        defaultValue = ""
+                    }
+                )
+            ) {
+                MealInfoPage(onNavigate = {
+                    navController.navigate(it.route)
+                }
+                )
+            }
+            composable(Routes.CheckListNoteScreen) {
+                CheckListNotePage(onNavigate = {
+                    navController.navigate(it.route)
+                }
+                )
+
+            }
+            composable(Routes.ScheduledMealScreen) {
+                ScheduleMealPage(
+                    onNavigate = {navController.navigate(it.route)}
+                )
+
+            }
+            composable(route = Routes.OnlineStoreScreen + "?STORE_CATEGORY={STORE_CATEGORY}",
+                arguments = listOf(
+                    navArgument(name = Constants.StoreCategory) {
+                        type = NavType.StringType
+                        defaultValue = ""
+                    }
+                )
+            ) {
+                OnlineStorePage(onNavigate = {
+                    navController.navigate(it.route)
+                }
+                )
+            }
+        }
+    }
+
 }
 
 @Preview(showBackground = true)

@@ -87,7 +87,7 @@ fun ParallaxToolbar(data: Meal_Info) {
                 IconButton1(R.drawable.ic_baseline_arrow_back)
 
                 Text(
-                    "Vegetarian",
+                    data.strArea.toString(),
                     fontSize = 26.sp,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier
@@ -150,7 +150,7 @@ fun ButtonContainer(mealInfo: Meal_Info){
     ) {
 
         Text(
-            "Ingridients",
+            "Ingredients",
             fontSize = 25.sp,
             fontWeight = FontWeight.Bold
         )

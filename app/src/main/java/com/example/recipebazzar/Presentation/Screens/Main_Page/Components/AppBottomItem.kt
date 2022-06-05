@@ -3,6 +3,7 @@ package com.example.recipebazzar.Presentation.Screens.Main_Page.Components
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.*
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.example.recipebazzar.Presentation.Screens.ScreenUtils.UiConstant
 
 sealed class AppBottomItem(
     val id:String,
@@ -10,14 +11,14 @@ sealed class AppBottomItem(
     val icon: ImageVector,
 ){
 
-    object Home: AppBottomItem("home","Home", Icons.Outlined.Home)
-    object Search: AppBottomItem("seacrh","Checklist",Icons.Outlined.List)
-    object Profile: AppBottomItem("profile","Scheduled Meal",Icons.Outlined.DateRange)
-    object Settings: AppBottomItem("settings","Exit",Icons.Outlined.ExitToApp)
+    object Home: AppBottomItem(UiConstant.MainPageAppBarItemId.home,"Home", Icons.Outlined.Home)
+    object CheckList: AppBottomItem(UiConstant.MainPageAppBarItemId.checklist,"Checklist",Icons.Outlined.List)
+    object Scheduled_Meal: AppBottomItem(UiConstant.MainPageAppBarItemId.scheduledmeal,"Scheduled Meal",Icons.Outlined.DateRange)
+    object Exit: AppBottomItem(UiConstant.MainPageAppBarItemId.exit,"Exit",Icons.Outlined.ExitToApp)
 
     object Items{
         val list= listOf(
-            Home, Search, Profile, Settings
+            Home, CheckList, Scheduled_Meal, Exit
         )
     }
 

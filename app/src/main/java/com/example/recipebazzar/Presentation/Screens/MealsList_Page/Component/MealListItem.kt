@@ -75,9 +75,10 @@ fun MealListItem(
                 .padding(10.dp),
                 contentAlignment = Alignment.BottomStart) {
                 Text(
-                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.background(Transparent_dark),
+                    fontWeight = FontWeight.SemiBold,
                     text = meal.MealName,
-                    style = TextStyle(color = White11, fontSize = 16.sp)
+                    style = TextStyle(color = White, fontSize = 16.sp)
                 )
             }
         }

@@ -19,16 +19,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.recipebazzar.Presentation.Screens.Main_Page.MainPageEvent
-import com.example.recipebazzar.Presentation.ui.theme.BG3
-import com.example.recipebazzar.Presentation.ui.theme.TCOLOR22
-import com.example.recipebazzar.Presentation.ui.theme.TCOLOR223
+import com.example.recipebazzar.Presentation.Screens.Main_Page.MainPageViewModel
+import com.example.recipebazzar.Presentation.Screens.ScreenUtils.UiConstant
+import com.example.recipebazzar.Presentation.ui.theme.*
 import com.example.recipebazzar.R
 
 
 @Preview
 @Composable
-fun OnlineStores(){
+fun OnlineStores( viewModel: MainPageViewModel =  hiltViewModel()){
 
 
             val configuration = LocalConfiguration.current
@@ -38,7 +40,9 @@ fun OnlineStores(){
 
 
             val cardElevation: Dp = 3.dp;
+            val textSize = 13.sp;
             if (configuration.screenWidthDp.dp <= 480.dp) {
+
                 cardModifier = Modifier
                     .fillMaxWidth()
 
@@ -57,7 +61,7 @@ fun OnlineStores(){
                 shape = RoundedCornerShape(8),
                 elevation = cardElevation,
                 modifier = cardModifier.clickable{
-
+                    viewModel.MainPageEventVM(MainPageEvent.onClickStore(UiConstant.StoreCategory.ingredients_store))
                 }
             ) {
 
@@ -65,18 +69,19 @@ fun OnlineStores(){
                     verticalArrangement = Arrangement.Top,
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
-                        .background(color = TCOLOR22)
-                        .padding(10.dp,5.dp)
+                        .background(color = ClayMint)
+                        .padding(5.dp,5.dp)
 
                 ) {
 
 
-                    Image( painter = painterResource(R.drawable.seafoods_item),
+                    Image( painter = painterResource(R.drawable.ingredients),
                         contentDescription = "",
-                        modifier = Modifier.padding(5.dp))
+                        modifier = Modifier.padding(10.dp))
 
                     Text(
-                        text = "Beef"
+                        text = "Ingredients",
+                        fontSize = textSize
                     )
 
 
@@ -97,7 +102,7 @@ fun OnlineStores(){
                 shape = RoundedCornerShape(8),
                 elevation = cardElevation,
                 modifier = cardModifier.clickable{
-
+                    viewModel.MainPageEventVM(MainPageEvent.onClickStore(UiConstant.StoreCategory.beverage_store))
                 }
             ) {
 
@@ -105,18 +110,19 @@ fun OnlineStores(){
                     verticalArrangement = Arrangement.Top,
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
-                        .background(color = BG3)
-                        .padding(10.dp,5.dp)
+                        .background(color = HotPink)
+                        .padding(5.dp,5.dp)
 
                 ) {
 
 
-                    Image( painter = painterResource(R.drawable.seafoods_item),
+                    Image( painter = painterResource(R.drawable.beverage),
                         contentDescription = "",
-                        modifier = Modifier.padding(5.dp))
+                        modifier = Modifier.padding(10.dp))
 
                     Text(
-                        text = "Beef"
+                        text = "Beverage",
+                        fontSize = textSize
                     )
 
 
@@ -136,7 +142,7 @@ fun OnlineStores(){
                 shape = RoundedCornerShape(8),
                 elevation = cardElevation,
                 modifier = cardModifier.clickable{
-
+                    viewModel.MainPageEventVM(MainPageEvent.onClickStore(UiConstant.StoreCategory.kitchenware_store))
                 }
             ) {
 
@@ -144,18 +150,19 @@ fun OnlineStores(){
                     verticalArrangement = Arrangement.Top,
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
-                        .background(color = TCOLOR223)
-                        .padding(10.dp,5.dp)
+                        .background(color = ClayBlue)
+                        .padding(5.dp,5.dp)
 
                 ) {
 
 
-                    Image( painter = painterResource(R.drawable.seafoods_item),
+                    Image( painter = painterResource(R.drawable.kitchen),
                         contentDescription = "",
-                        modifier = Modifier.padding(5.dp))
+                        modifier = Modifier.padding(10.dp))
 
                     Text(
-                        text = "Beef"
+                        text = "Kitchenware",
+                        fontSize = textSize
                     )
 
 

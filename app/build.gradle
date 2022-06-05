@@ -46,12 +46,16 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+    namespace 'com.example.recipebazzar'
 }
 
 dependencies {
 
     def nav_version = "2.4.1"
     def lifecycle_version = "2.4.0"
+    def roomVersion = "2.4.2"
+
+
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation "androidx.compose.ui:ui:$compose_version"
@@ -104,10 +108,21 @@ dependencies {
 
     //WindowsInset
     implementation "com.google.accompanist:accompanist-insets:0.17.0"
-
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.24.9-beta"
 
 
     implementation platform('com.google.firebase:firebase-bom:29.3.0')
     implementation 'com.google.firebase:firebase-firestore-ktx'
+
+
+
+    //ROOM
+    implementation("androidx.room:room-runtime:$roomVersion")
+    annotationProcessor("androidx.room:room-compiler:$roomVersion")
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$roomVersion")
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:$roomVersion")
+
 
 }

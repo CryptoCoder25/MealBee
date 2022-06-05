@@ -15,14 +15,15 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.example.recipebazzar.Presentation.ui.theme.ClayMint
 import kotlinx.coroutines.delay
 
 
 @Composable
-fun LoadingAnimation1(
+fun LoadingEffect(
     modifier: Modifier = Modifier,
     circleSize: Dp = 25.dp,
-    circleColor: Color = MaterialTheme.colors.primary,
+    circleColor: Color = ClayMint,
     spaceBetween: Dp = 10.dp,
     travelDistance: Dp = 20.dp
 ) {

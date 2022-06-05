@@ -1,30 +1,31 @@
 package com.example.recipebazzar.Presentation.Screens.MealsList_Page
 
-import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.List
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.recipebazzar.Presentation.PublicEvents.PublicUiEvents
-import com.example.recipebazzar.Presentation.Screens.Main_Page.MainPageViewModel
-import com.example.recipebazzar.Presentation.Screens.MealInfo_Page.MealInfoStates
-import com.example.recipebazzar.Presentation.Screens.MealsList_Page.Component.MealListItem
+import com.example.recipebazzar.Presentation.PublicPresentationEvents.PublicUiEvents
+import com.example.recipebazzar.Presentation.Screens.CheckListNote_Page.CheckListNoteEvent
 import com.example.recipebazzar.Presentation.Screens.ScreenUtils.ItemMealShimmerEffect
-import com.example.recipebazzar.Presentation.Screens.ScreenUtils.LoadingAnimation1
+import com.example.recipebazzar.Presentation.Screens.ScreenUtils.LoadingEffect
+import com.example.recipebazzar.Presentation.Screens.ScreenUtils.OnErrorView
+import com.example.recipebazzar.R
 import kotlinx.coroutines.flow.collect
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -41,14 +42,6 @@ fun MealsListPage(
 
             when(event){
 
-                is PublicUiEvents.ShowSnackbar  -> {
-                    scaffoldState.snackbarHostState.showSnackbar(
-                        message = event.message,
-                        actionLabel = event.action
-                    )
-
-                }
-
                 is PublicUiEvents.Navigate -> onNavigate(event);
 
                 else -> Unit
@@ -58,27 +51,54 @@ fun MealsListPage(
     }
 
    if(state.isLoading){
-       Box(modifier = Modifier.fillMaxSize(),
-           contentAlignment = Alignment.Center){
-           LoadingAnimation1()
-       }
-   }else if(state.error.isNotBlank()){
 
+       Box(modifier = Modifier.fillMaxSize(),
+           contentAlignment = Alignment.Center)
+       {
+           LoadingEffect()
+       }
+
+   } else if(state.error.isNotBlank()){
+
+       OnErrorView(state.error)
 
    } else {
-       Scaffold(modifier = Modifier.fillMaxSize())
+
+       Scaffold(
+           modifier = Modifier
+               .fillMaxSize()
+               .padding(top = 15.dp),
+           scaffoldState = scaffoldState,
+       )
        {
            Column(modifier = Modifier.fillMaxWidth()) {
 
-               Text(
-                   fontSize = 26.sp,
-                   fontWeight = FontWeight.SemiBold,
-                   text = "Select Your Meal", modifier = Modifier
-                       .fillMaxWidth()
-                       .padding(20.dp)
-               )
+               Card(  shape = RoundedCornerShape(5.dp),
+                   elevation = 3.dp) {
+                   Row(
+                       modifier = Modifier
+                           .fillMaxWidth()
+                           .padding(start = 15.dp, end = 10.dp),
+                       horizontalArrangement = Arrangement.SpaceBetween,
+                       verticalAlignment = Alignment.CenterVertically
+                   ) {
+                       Text(
+                           text = "Menu List",
+                           style = MaterialTheme.typography.h5,
+                           fontWeight = FontWeight.SemiBold,
+                           color = Color.DarkGray
+                       )
+                       Image( painter = painterResource(R.drawable.cook),
+                           contentDescription = "",
+                           modifier = Modifier.padding(10.dp))
 
-               Box(modifier = Modifier.fillMaxSize())
+                   }
+               }
+
+               Spacer(modifier = Modifier.height(8.dp))
+               Box(modifier = Modifier
+                   .fillMaxSize()
+                   .padding(start = 10.dp, end = 10.dp))
                {
 
                    LazyVerticalGrid(
