@@ -17,7 +17,7 @@ Tech Stack and Design Pattern Used:
  
 
 
-<img src="https://your-image-url.type](https://user-images.githubusercontent.com/105339727/172060711-1ca8e15d-b2bb-4c18-a546-f5419247ca75.jpg" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/105339727/172060711-1ca8e15d-b2bb-4c18-a546-f5419247ca75.jpg" width="100" height="100">
 
-<img src="https://your-image-url.type](https://user-images.githubusercontent.com/105339727/172060711-1ca8e15d-b2bb-4c18-a546-f5419247ca75.jpg" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/105339727/172060711-1ca8e15d-b2bb-4c18-a546-f5419247ca75.jpg" width="100" height="100">
 
