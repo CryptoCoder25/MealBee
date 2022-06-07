@@ -4,7 +4,7 @@
 ## Features of this app:
 1. International Recipe listing.
 2. List of ingredients, beverage and kitcheware provide.
-3. Kitchen notes - development ongoing
+3. Kitchen notes 
 4. Schedule Meal - development ongoing
 
 
