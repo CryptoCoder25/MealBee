@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectPlainTextFileTypeManager">
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/recipebazzar/Presentation/Screens/Main_Page/Components/MealsCategory1.kt" />
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android Portfolios/MealBoi/app/src/main/java/com/example/recipebazzar/MainActivity.kt" value="1.6" />
+        <entry key="..\:/Android Portfolios/MealBoi/app/src/main/java/com/example/recipebazzar/Presentation/Screens/Main_Page/Components/OnlineStores.kt" value="0.1" />
+        <entry key="..\:/Android Portfolios/MealBoi/app/src/main/java/com/example/recipebazzar/Presentation/Screens/OnlineStores_Page/Components/OnlineStoresItem.kt" value="0.30648148148148147" />
+      </map>
+    </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
