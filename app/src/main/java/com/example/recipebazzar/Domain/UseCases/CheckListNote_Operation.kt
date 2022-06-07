@@ -56,4 +56,8 @@ class CheckListNote_Operation @Inject constructor (private val repository: Check
         repository.insertNote(note)
 
     }
+
+    suspend  fun getNote(id: Int): CheckListNote? {
+        return repository.getNoteById(id)
+    }
 }

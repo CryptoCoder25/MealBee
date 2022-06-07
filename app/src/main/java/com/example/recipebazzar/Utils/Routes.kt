@@ -17,7 +17,10 @@ object Routes {
     //SCREEN 6
     const val CheckListNoteScreen = "CHECKLIST_PAGE";
 
-    //SCREEN 7
+    //SCREEN 6
+    const val AddEditNotePage = "ADD_EDIT_NOTE_PAGE";
+
+    //SCREEN 8
     const val OnlineStoreScreen = "ONLINE_STORES";
 
 }

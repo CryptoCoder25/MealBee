@@ -2,10 +2,7 @@ package com.example.recipebazzar.Domain.Models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.recipebazzar.Presentation.ui.theme.BG3
-import com.example.recipebazzar.Presentation.ui.theme.Purple700
-import com.example.recipebazzar.Presentation.ui.theme.TCOLOR223
-import com.example.recipebazzar.Presentation.ui.theme.Teal200
+import com.example.recipebazzar.Presentation.ui.theme.*
 
 
 @Entity
@@ -18,7 +15,7 @@ data class CheckListNote(
 ){
 
     companion object {
-        val  checkListNoteColors = listOf(Teal200,Purple700, BG3,TCOLOR223)
+        val  checkListNoteColors = listOf(ClayBlue, ClayMint, ClayViolet, ClayYellow)
     }
 }
 

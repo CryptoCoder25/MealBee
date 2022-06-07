@@ -2,10 +2,12 @@ package com.example.recipebazzar.Presentation.Screens.CheckListNote_Page
 
 import com.example.recipebazzar.Domain.Models.CheckListNote
 import com.example.recipebazzar.Domain.Utils.CheckListNoteOrderBy
+import com.example.recipebazzar.Presentation.Screens.Main_Page.MainPageEvent
 
 sealed class CheckListNoteEvent {
     data class onClikcOrderBy(val noteOrder: CheckListNoteOrderBy) : CheckListNoteEvent()
     data class onClickDeleteNote(val note: CheckListNote) : CheckListNoteEvent()
     object RestoreNote : CheckListNoteEvent()
     object ToggleOrderSection : CheckListNoteEvent()
+    data class onClickAddNote(val noteId: Int?, val noteColor: Int): CheckListNoteEvent()
 }

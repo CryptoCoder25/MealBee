@@ -1,9 +1,7 @@
 package com.example.recipebazzar.Presentation.Screens.ScreenUtils
 
 class UiConstant {
-
-
-
+        
         object MainPageAppBarItemId{
         const val home = "HOME"
         const val checklist = "CHECKLIST"

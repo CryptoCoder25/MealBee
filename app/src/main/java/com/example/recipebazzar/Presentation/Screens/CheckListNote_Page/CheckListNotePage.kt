@@ -19,16 +19,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import kotlinx.coroutines.launch
 import com.example.recipebazzar.Presentation.PublicPresentationEvents.PublicUiEvents
 import com.example.recipebazzar.Presentation.Screens.CheckListNote_Page.Components.CheckListNoteItem
 import com.example.recipebazzar.Presentation.Screens.CheckListNote_Page.Components.OrderSection
+import com.example.recipebazzar.Presentation.Screens.Main_Page.MainPageEvent
+import com.example.recipebazzar.Utils.Routes
 
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun  CheckListNotePage(
-    onNavigate: (PublicUiEvents.Navigate) -> Unit,
+    navController: NavController,
     viewModel: CheckListPageViewModel =  hiltViewModel()
 )
 {
@@ -41,7 +44,7 @@ fun  CheckListNotePage(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-                   // navController.navigate(Screen.AddEditNoteScreen.route)
+                   navController.navigate(Routes.AddEditNotePage)
                 },
                 backgroundColor = MaterialTheme.colors.primary
             ) {
@@ -61,7 +64,7 @@ fun  CheckListNotePage(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "Note List",
+                    text = "Kitchen Note List",
                     style = MaterialTheme.typography.h5,
                     fontWeight = FontWeight.SemiBold
                 )
@@ -99,10 +102,12 @@ fun  CheckListNotePage(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
-                               /* navController.navigate(
-                                    Screen.AddEditNoteScreen.route +
-                                            "?noteId=${note.id}&noteColor=${note.color}"
-                                )*/
+
+                            //   viewModel.OnEvent(CheckListNoteEvent.onClickAddNote(note.id,note.color))
+                                navController.navigate(
+                                    Routes.AddEditNotePage +
+                                            "?NOTE_ID=${note.id}&NOTE_COLOR=${note.color}"
+                                )
                             },
                         onDeleteClick = {
                             viewModel.OnEvent(CheckListNoteEvent.onClickDeleteNote(note))

@@ -40,6 +40,7 @@ fun MealInfoPage(
 
     var mealdata : Meal_Info? = null;
     val scaffoldState = rememberScaffoldState()
+
     val state =   viewModel.state.value
 
          if (!state.mealinfo.isNullOrEmpty()) {
@@ -97,6 +98,7 @@ fun MealInfoPage(
                         content = {
 
                             items(MealInfoItemsFormatter.getMeasurements(mealdata).size) { index ->
+
                                 var ingriedient = MealInfoItemsFormatter.getIngredients(mealdata)[index];
                                 var measurement = MealInfoItemsFormatter.getMeasurements(mealdata)[index];
 

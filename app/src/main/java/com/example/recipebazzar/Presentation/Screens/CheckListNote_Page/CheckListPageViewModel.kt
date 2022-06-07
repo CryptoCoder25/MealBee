@@ -10,6 +10,7 @@ import com.example.recipebazzar.Domain.UseCases.CheckListNote_Operation
 import com.example.recipebazzar.Domain.Utils.CheckListNoteOrderBy
 import com.example.recipebazzar.Domain.Utils.OrderType
 import com.example.recipebazzar.Presentation.PublicPresentationEvents.PublicUiEvents
+import com.example.recipebazzar.Utils.Routes
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.Channel
@@ -45,6 +46,11 @@ class CheckListPageViewModel  @Inject constructor(
     fun OnEvent(event: CheckListNoteEvent){
 
         when(event){
+
+            is CheckListNoteEvent.onClickAddNote -> {
+
+                sendUiEvent(PublicUiEvents.Navigate(Routes.AddEditNotePage + "?NOTED_ID=${event.noteId}&NOTED_COLOR=${event.noteColor}"))
+            }
 
             is CheckListNoteEvent.onClikcOrderBy ->
             {

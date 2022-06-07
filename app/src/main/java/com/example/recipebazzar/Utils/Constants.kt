@@ -11,6 +11,9 @@ object Constants {
     const val MealsId = "MEAL_ID"
     const val StoreCategory = "STORE_CATEGORY"
 
+    const val NoteId = "NOTE_ID"
+    const val NoteColor = "NOTE_COLOR"
+
     val AppBarCollapsedHeight = 56.dp
     val AppBarExpendedHeight = 400.dp
 

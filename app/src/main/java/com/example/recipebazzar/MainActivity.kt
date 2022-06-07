@@ -17,6 +17,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.recipebazzar.Presentation.Screens.AddEditNote_Page.AddEditNotePage
 import com.example.recipebazzar.Presentation.Screens.CheckListNote_Page.CheckListNotePage
 import com.example.recipebazzar.Presentation.Screens.Main_Page.MainPage
 import com.example.recipebazzar.Presentation.Screens.MealInfo_Page.MealInfoPage
@@ -102,12 +103,25 @@ fun AppContent( currentScreen : MutableState<AppBottomItem>, activity: Activity?
                 )
             }
             composable(Routes.CheckListNoteScreen) {
-                CheckListNotePage(onNavigate = {
-                    navController.navigate(it.route)
-                }
-                )
+                CheckListNotePage(navController)
 
             }
+            composable(route = Routes.AddEditNotePage + "?NOTE_ID={NOTE_ID}&NOTE_COLOR={NOTE_COLOR}",
+            arguments = listOf(
+                navArgument(name = Constants.NoteId) {
+                    type = NavType.IntType
+                    defaultValue = -1
+                },
+                navArgument(name = Constants.NoteColor) {
+                    type = NavType.IntType
+                    defaultValue = -1
+                }
+
+            )
+            ) {
+                val color = it.arguments?.getInt("noteColor") ?: -1
+                AddEditNotePage(navController = navController, color)
+        }
             composable(Routes.ScheduledMealScreen) {
                 ScheduleMealPage(
                     onNavigate = {navController.navigate(it.route)}
