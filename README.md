@@ -5,7 +5,8 @@
 1. International Recipe listing.
 2. List of ingredients, beverage and kitcheware provide.
 3. Kitchen notes 
-4. Schedule Meal - development ongoing
+4. BMI Calculator
+5. Schedule Meal - development ongoing
 
 
 ### Note: Development still ongoing.
