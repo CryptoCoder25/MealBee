@@ -42,9 +42,9 @@ class MainPageViewModel @Inject constructor(): ViewModel() {
 
                      sendUiEvent(PublicUiEvents.Navigate(Routes.CheckListNoteScreen))
 
-                 } else if(event.itemId.equals(UiConstant.MainPageAppBarItemId.scheduledmeal)){
+                 } else if(event.itemId.equals(UiConstant.MainPageAppBarItemId.bmicaculator)){
 
-                     sendUiEvent(PublicUiEvents.Navigate(Routes.ScheduledMealScreen))
+                     sendUiEvent(PublicUiEvents.Navigate(Routes.BMICalculatorScreen))
 
                  } else if(event.itemId.equals(UiConstant.MainPageAppBarItemId.exit)){
 

@@ -13,12 +13,12 @@ sealed class AppBottomItem(
 
     object Home: AppBottomItem(UiConstant.MainPageAppBarItemId.home,"Home", Icons.Outlined.Home)
     object CheckList: AppBottomItem(UiConstant.MainPageAppBarItemId.checklist,"Checklist",Icons.Outlined.List)
-    object Scheduled_Meal: AppBottomItem(UiConstant.MainPageAppBarItemId.scheduledmeal,"Scheduled Meal",Icons.Outlined.DateRange)
+    object BMICalculator: AppBottomItem(UiConstant.MainPageAppBarItemId.bmicaculator,"BMI Calculator",Icons.Outlined.Person)
     object Exit: AppBottomItem(UiConstant.MainPageAppBarItemId.exit,"Exit",Icons.Outlined.ExitToApp)
 
     object Items{
         val list= listOf(
-            Home, CheckList, Scheduled_Meal, Exit
+            Home, CheckList,BMICalculator, Exit
         )
     }
 

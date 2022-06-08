@@ -38,6 +38,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
 import com.example.recipebazzar.Domain.Models.Meal_Info
+import com.example.recipebazzar.Presentation.Screens.MealsList_Page.MealsListEvents
 import com.example.recipebazzar.Presentation.Screens.ScreenUtils.IconButton1
 import com.example.recipebazzar.Presentation.ui.theme.*
 import com.example.recipebazzar.Utils.Constants.AppBarCollapsedHeight
@@ -51,7 +52,7 @@ import com.example.recipebazzar.R
 
 
 @Composable
-fun ParallaxToolbar(data: Meal_Info) {
+fun ParallaxToolbar(data: Meal_Info,    viewModel: Meal_InfoViewModel) {
 
     val scrollState = rememberLazyListState()
     val imageHeight = AppBarExpendedHeight - AppBarCollapsedHeight
@@ -84,8 +85,19 @@ fun ParallaxToolbar(data: Meal_Info) {
                     .height(AppBarCollapsedHeight)
                     .padding(horizontal = 16.dp)
             ) {
-                IconButton1(R.drawable.ic_baseline_arrow_back)
-
+               // IconButton1(R.drawable.ic_baseline_arrow_back)
+                Button(
+                    onClick = { viewModel.OnEvent(MealInfoEvents.onClickBackButton)  },
+                    contentPadding = PaddingValues(),
+                    shape = Shapes.small,
+                    colors = ButtonDefaults.buttonColors(backgroundColor = com.example.recipebazzar.Presentation.ui.theme.White, contentColor = Gray),
+                    elevation = ButtonDefaults.elevation(),
+                    modifier = Modifier
+                        .width(38.dp)
+                        .height(38.dp)
+                ) {
+                    Icon( painterResource(id = R.drawable.ic_baseline_arrow_back), null)
+                }
                 Text(
                     data.strArea.toString(),
                     fontSize = 26.sp,
@@ -95,7 +107,19 @@ fun ParallaxToolbar(data: Meal_Info) {
                         .scale(1f - 0.25f * offsetProgress)
                 )
 
-                IconButton1(R.drawable.ic_baseline_share)
+               // IconButton1(R.drawable.ic_baseline_share)
+                Button(
+                    onClick = {  },
+                    contentPadding = PaddingValues(),
+                    shape = Shapes.small,
+                    colors = ButtonDefaults.buttonColors(backgroundColor = com.example.recipebazzar.Presentation.ui.theme.White, contentColor = Gray),
+                    elevation = ButtonDefaults.elevation(),
+                    modifier = Modifier
+                        .width(38.dp)
+                        .height(38.dp)
+                ) {
+                    Icon( painterResource(id = R.drawable.ic_baseline_share), null)
+                }
             }
             Box(
                 Modifier

@@ -14,8 +14,7 @@ sealed class PublicUiEvents {
     ): PublicUiEvents()
 
     data class ShowToastMessage(
-        val message: String,
-        val action: String? = null
+        val message: String
     ): PublicUiEvents()
 
 

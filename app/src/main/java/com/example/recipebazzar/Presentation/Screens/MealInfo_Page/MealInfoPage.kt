@@ -33,7 +33,7 @@ import kotlinx.coroutines.flow.collect
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun MealInfoPage(
-    onNavigate: (PublicUiEvents.Navigate) -> Unit,
+    onPopBackStack: () -> Unit,
     viewModel: Meal_InfoViewModel =  hiltViewModel()
 ){
 
@@ -60,7 +60,9 @@ fun MealInfoPage(
 
                 }
 
-                is PublicUiEvents.Navigate -> onNavigate(event);
+                is PublicUiEvents.PopBackStack -> onPopBackStack()
+
+
 
                 else -> Unit
             }
@@ -80,7 +82,7 @@ fun MealInfoPage(
     } else {
         if (mealdata != null) {
             Column(modifier = Modifier.fillMaxSize()) {
-                ParallaxToolbar(mealdata)
+                ParallaxToolbar(mealdata, viewModel)
                 ButtonContainer(mealdata)
                 Box(
                     modifier = Modifier

@@ -1,5 +1,7 @@
 package com.example.recipebazzar.Utils
 
+import com.example.recipebazzar.Presentation.Screens.Main_Page.Components.AppBottomItem
+
 object Routes {
 
     //SCREEN 1
@@ -12,7 +14,7 @@ object Routes {
     const val MealInfoScreen = "MEAL_INFO_PAGE";
 
     //SCREEN 5
-    const val ScheduledMealScreen = "SCHEDULED_MEAL_PAGE";
+    const val BMICalculatorScreen = "BMI_CALCULATOR_PAGE";
 
     //SCREEN 6
     const val CheckListNoteScreen = "CHECKLIST_PAGE";

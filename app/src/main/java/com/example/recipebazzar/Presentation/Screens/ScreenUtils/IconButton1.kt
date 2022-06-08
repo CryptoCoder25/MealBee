@@ -29,8 +29,8 @@ fun IconButton1(
         onClick = onClick,
         contentPadding = PaddingValues(),
         shape = Shapes.small,
-        colors = ButtonDefaults.buttonColors(backgroundColor = White, contentColor = color),
-        elevation = elevation,
+        colors = ButtonDefaults.buttonColors(backgroundColor = White, contentColor = Gray),
+        elevation = ButtonDefaults.elevation(),
         modifier = Modifier
             .width(38.dp)
             .height(38.dp)

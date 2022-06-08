@@ -18,11 +18,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.recipebazzar.Presentation.Screens.AddEditNote_Page.AddEditNotePage
+import com.example.recipebazzar.Presentation.Screens.BMICalculatore_Page.BMICalculatorPage
 import com.example.recipebazzar.Presentation.Screens.CheckListNote_Page.CheckListNotePage
 import com.example.recipebazzar.Presentation.Screens.Main_Page.MainPage
 import com.example.recipebazzar.Presentation.Screens.MealInfo_Page.MealInfoPage
 import com.example.recipebazzar.Presentation.Screens.MealsList_Page.MealsListPage
-import com.example.recipebazzar.Presentation.Screens.ScheduledMeal_Page.ScheduleMealPage
 import com.example.recipebazzar.Presentation.Screens.Main_Page.Components.AppBottomItem
 import com.example.recipebazzar.Presentation.Screens.OnlineStores_Page.OnlineStorePage
 import com.example.recipebazzar.Presentation.ui.theme.RecipeBazzarTheme
@@ -97,8 +97,8 @@ fun AppContent( currentScreen : MutableState<AppBottomItem>, activity: Activity?
                     }
                 )
             ) {
-                MealInfoPage(onNavigate = {
-                    navController.navigate(it.route)
+                MealInfoPage( onPopBackStack = {
+                    navController.popBackStack()
                 }
                 )
             }
@@ -122,11 +122,9 @@ fun AppContent( currentScreen : MutableState<AppBottomItem>, activity: Activity?
                 val color = it.arguments?.getInt("noteColor") ?: -1
                 AddEditNotePage(navController = navController, color)
         }
-            composable(Routes.ScheduledMealScreen) {
-                ScheduleMealPage(
-                    onNavigate = {navController.navigate(it.route)}
-                )
+            composable(Routes.BMICalculatorScreen) {
 
+                BMICalculatorPage()
             }
             composable(route = Routes.OnlineStoreScreen + "?STORE_CATEGORY={STORE_CATEGORY}",
                 arguments = listOf(
