@@ -1,6 +1,5 @@
 package com.example.recipebazzar.Presentation.Screens.BMICalculatore_Page.Components
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -8,17 +7,17 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.*
-import androidx.compose.runtime.*
+import androidx.compose.material.Card
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -29,8 +28,7 @@ import com.example.recipebazzar.R
 
 
 @Composable
-fun GenderButton(cardModifier: Modifier, cardElevation: Dp,
-                 viewModel: BMICalculatorViewModel){
+fun GenderButton(cardModifier: Modifier, cardElevation: Dp){
 
     Row(modifier = Modifier
         .fillMaxWidth()
@@ -92,7 +90,7 @@ fun GenderButton(cardModifier: Modifier, cardElevation: Dp,
 
 
 @Composable
-fun HeightField(cardModifier: Modifier, cardElevation: Dp, height: MutableState<String>,
+fun HeightField(cardModifier: Modifier, cardElevation: Dp,
                 viewModel: BMICalculatorViewModel){
 
     Box(modifier = Modifier
@@ -134,8 +132,6 @@ fun HeightField(cardModifier: Modifier, cardElevation: Dp, height: MutableState<
 @Composable
 fun WeightandAgeFields(cardModifier: Modifier,
                        cardElevation: Dp ,
-                       age: MutableState<String>,
-                       weight: MutableState<String>,
                        viewModel: BMICalculatorViewModel
                        ){
 

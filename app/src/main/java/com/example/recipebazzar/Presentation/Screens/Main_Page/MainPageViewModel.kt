@@ -1,13 +1,11 @@
 package com.example.recipebazzar.Presentation.Screens.Main_Page
 
-import android.app.Application
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.recipebazzar.Presentation.PublicPresentationEvents.PublicUiEvents
 import com.example.recipebazzar.Presentation.Screens.ScreenUtils.UiConstant
 import com.example.recipebazzar.Utils.Routes
-import dagger.hilt.android.internal.Contexts.getApplication
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow

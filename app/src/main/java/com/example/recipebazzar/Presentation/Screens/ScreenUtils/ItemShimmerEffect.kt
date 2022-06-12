@@ -2,23 +2,12 @@ package com.example.recipebazzar.Presentation.Screens.ScreenUtils
 
 
 
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.core.*
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.example.recipebazzar.Domain.Models.Meal
-import com.example.recipebazzar.Domain.Models.Meal_Info
 import com.example.recipebazzar.Domain.Models.OnlineStore
 import com.example.recipebazzar.Presentation.Screens.MealInfo_Page.IngredientItemCard
 import com.example.recipebazzar.Presentation.Screens.MealsList_Page.Component.MealListItem

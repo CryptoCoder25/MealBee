@@ -1,7 +1,10 @@
 package com.example.recipebazzar.Presentation.Screens.Main_Page.Components
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.*
+import androidx.compose.material.icons.outlined.ExitToApp
+import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.List
+import androidx.compose.material.icons.outlined.Person
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.example.recipebazzar.Presentation.Screens.ScreenUtils.UiConstant
 

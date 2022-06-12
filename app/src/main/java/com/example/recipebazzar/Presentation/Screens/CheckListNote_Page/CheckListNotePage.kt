@@ -1,10 +1,5 @@
 package com.example.recipebazzar.Presentation.Screens.CheckListNote_Page
 
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.material.rememberScaffoldState
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.animation.*
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -14,18 +9,18 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.List
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import kotlinx.coroutines.launch
-import com.example.recipebazzar.Presentation.PublicPresentationEvents.PublicUiEvents
 import com.example.recipebazzar.Presentation.Screens.CheckListNote_Page.Components.CheckListNoteItem
 import com.example.recipebazzar.Presentation.Screens.CheckListNote_Page.Components.OrderSection
-import com.example.recipebazzar.Presentation.Screens.Main_Page.MainPageEvent
 import com.example.recipebazzar.Utils.Routes
+import kotlinx.coroutines.launch
 
 
 @OptIn(ExperimentalAnimationApi::class)

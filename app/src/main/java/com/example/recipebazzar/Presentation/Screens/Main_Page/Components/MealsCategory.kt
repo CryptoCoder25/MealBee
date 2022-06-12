@@ -19,10 +19,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.recipebazzar.R
 import com.example.recipebazzar.Presentation.Screens.Main_Page.MainPageEvent
 import com.example.recipebazzar.Presentation.Screens.Main_Page.MainPageViewModel
 import com.example.recipebazzar.Presentation.ui.theme.*
+import com.example.recipebazzar.R
 
 
 @Preview

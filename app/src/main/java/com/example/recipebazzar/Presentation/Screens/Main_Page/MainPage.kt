@@ -1,38 +1,33 @@
 package com.example.recipebazzar.Presentation.Screens.Main_Page
 
+
 import android.app.Activity
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.*
-import androidx.compose.runtime.*
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.rememberScaffoldState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.recipebazzar.MainActivity
 import com.example.recipebazzar.Presentation.PublicPresentationEvents.PublicUiEvents
-
-
 import com.example.recipebazzar.Presentation.Screens.Main_Page.Components.AppBottomItem
 import com.example.recipebazzar.Presentation.Screens.Main_Page.Components.BottomAppBarMainPage
 import com.example.recipebazzar.Presentation.Screens.Main_Page.Components.OnlineStores
 import com.example.recipebazzar.Presentation.ui.ItemsUi.MealsCategory
-import com.example.recipebazzar.Presentation.ui.theme.White11
 import com.example.recipebazzar.R
-
-
-import kotlinx.coroutines.flow.collect
 
 @Composable
 fun MainPage(
@@ -175,6 +170,10 @@ fun PreviewPgage(){
 
   ///  MainPage(onNavigate =  {}, currentScreen = remember { mutableStateOf<AppBottomItem>(AppBottomItem.Home) } )
 }
+
+
+enum class WindowSizeClass { Compact, Medium, Expanded }
+
 
 
 

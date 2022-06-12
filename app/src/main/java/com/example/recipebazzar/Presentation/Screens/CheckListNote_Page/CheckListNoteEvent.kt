@@ -2,7 +2,6 @@ package com.example.recipebazzar.Presentation.Screens.CheckListNote_Page
 
 import com.example.recipebazzar.Domain.Models.CheckListNote
 import com.example.recipebazzar.Domain.Utils.CheckListNoteOrderBy
-import com.example.recipebazzar.Presentation.Screens.Main_Page.MainPageEvent
 
 sealed class CheckListNoteEvent {
     data class onClikcOrderBy(val noteOrder: CheckListNoteOrderBy) : CheckListNoteEvent()

@@ -1,19 +1,14 @@
 package com.example.recipebazzar.Presentation.Screens.OnlineStores_Page
 
-import com.example.recipebazzar.Presentation.Screens.MealsList_Page.MealsListViewModel
-
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -22,7 +17,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.recipebazzar.Presentation.PublicPresentationEvents.PublicUiEvents
-import com.example.recipebazzar.Presentation.Screens.ScreenUtils.*
+import com.example.recipebazzar.Presentation.Screens.ScreenUtils.ItemStoreShimmerEffect
+import com.example.recipebazzar.Presentation.Screens.ScreenUtils.LoadingEffect
+import com.example.recipebazzar.Presentation.Screens.ScreenUtils.OnErrorView
 import com.example.recipebazzar.R
 
 @OptIn(ExperimentalFoundationApi::class)

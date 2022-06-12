@@ -5,12 +5,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.recipebazzar.Domain.UseCases.GetRecipeUseCases.GetMealList_NC
-
 import com.example.recipebazzar.Domain.NetworkUtils.NetworkEvents
+import com.example.recipebazzar.Domain.UseCases.GetRecipeUseCases.GetMealList_NC
 import com.example.recipebazzar.Presentation.PublicPresentationEvents.PublicUiEvents
-import com.example.recipebazzar.Utils.Routes
 import com.example.recipebazzar.Utils.Constants
+import com.example.recipebazzar.Utils.Routes
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.launchIn
@@ -18,7 +17,6 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
 
 
 @HiltViewModel

@@ -1,7 +1,6 @@
 package com.example.recipebazzar.Presentation.Screens.Main_Page.Components
 
 import android.content.Context
-import android.widget.Toast
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.background
@@ -19,7 +18,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.recipebazzar.MainActivity
 import com.example.recipebazzar.Presentation.Screens.Main_Page.MainPageEvent
 import com.example.recipebazzar.Presentation.Screens.Main_Page.MainPageViewModel
 
@@ -90,11 +88,7 @@ fun CustomBottomNavigationItem(
                     text = item.title,
                     color=contentColor,
                     modifier = Modifier.clickable(onClick = {
-                        Toast.makeText(
-                            context,
-                            "Loading...",
-                            Toast.LENGTH_SHORT
-                        ).show()
+
                         viewModel.MainPageEventVM(MainPageEvent.onClickAppBarItem(item.id))
                     })
                 )

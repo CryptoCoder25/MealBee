@@ -7,8 +7,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.recipebazzar.Presentation.PublicPresentationEvents.PublicUiEvents
-import com.example.recipebazzar.Presentation.Screens.AddEditNote_Page.AddEditNoteViewModel
-import com.example.recipebazzar.Presentation.Screens.MealsList_Page.MealsListStates
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -20,13 +18,13 @@ import javax.inject.Inject
 class BMICalculatorViewModel  @Inject constructor()  : ViewModel() {
 
 
-    var height by mutableStateOf("0")
+    var height by mutableStateOf("")
         private set
 
-    var weight by mutableStateOf("0")
+    var weight by mutableStateOf("")
         private set
 
-    var age by mutableStateOf("0")
+    var age by mutableStateOf("")
         private set
 
     private val _bmi = mutableStateOf("00.0")

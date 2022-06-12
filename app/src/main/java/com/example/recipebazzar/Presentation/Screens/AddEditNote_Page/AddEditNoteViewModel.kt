@@ -9,13 +9,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.recipebazzar.Domain.Models.CheckListNote
 import com.example.recipebazzar.Domain.UseCases.CheckListNote_Operation
-import com.example.recipebazzar.Presentation.PublicPresentationEvents.PublicUiEvents
 import com.example.recipebazzar.Utils.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
-import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
@@ -93,24 +91,41 @@ class AddEditNoteViewModel @Inject constructor(
             }
             is AddEditNoteEvent.SaveNote -> {
                 viewModelScope.launch {
-                    try {
-                        checkListOperation.insertNote(
-                            CheckListNote(
-                                title = noteTitle.value.text,
-                                content = noteContent.value.text,
-                                timestamp = System.currentTimeMillis(),
-                                color = noteColor.value,
-                                id = currentNoteId
-                            )
+
+                if( _noteTitle.value.text.isBlank() || _noteTitle.value.text.isEmpty() ){
+                    _eventFlow.emit(
+                        UiEvent.ShowSnackbar(
+                            message = "Title is required!"
                         )
-                        _eventFlow.emit(UiEvent.SaveNote)
-                    } catch(e: IOException) {
-                        _eventFlow.emit(
-                            UiEvent.ShowSnackbar(
-                                message = e.message ?: "Couldn't save note"
-                            )
+                    )
+
+                }else if(  _noteContent.value.text.isBlank() ||_noteContent.value.text.isEmpty() ) {
+                    _eventFlow.emit(
+                        UiEvent.ShowSnackbar(
+                            message = "Body content is required!"
                         )
-                        Log.d("ADD OPERATION FAILED","(IOException) " +e.localizedMessage)
+                    )
+                } else {
+
+                        try {
+                            checkListOperation.insertNote(
+                                CheckListNote(
+                                    title = noteTitle.value.text,
+                                    content = noteContent.value.text,
+                                    timestamp = System.currentTimeMillis(),
+                                    color = noteColor.value,
+                                    id = currentNoteId
+                                )
+                            )
+                            _eventFlow.emit(UiEvent.SaveNote)
+                        } catch(e: IOException) {
+                            _eventFlow.emit(
+                                UiEvent.ShowSnackbar(
+                                    message = e.message ?: "Couldn't save note"
+                                )
+                            )
+                            Log.d("ADD OPERATION FAILED","(IOException) " +e.localizedMessage)
+                        }
                     }
                 }
             }
@@ -120,5 +135,6 @@ class AddEditNoteViewModel @Inject constructor(
     sealed class UiEvent {
         data class ShowSnackbar(val message: String): UiEvent()
         object SaveNote: UiEvent()
+
     }
 }
